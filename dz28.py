@@ -59,11 +59,15 @@ for i in people:
 # Использовать метод get (y/n)? y
 # Значение для ключа 'banana': 6
 
-def get_value_from_dict(dict_inc, a, b):
-    return dict_inc.get(a, ':P') if b == 'y' else ':P'
+def get_value_from_dict(dict_inc, key, method):
+    if method == 'y':
+        return dict_inc.get(key)
+    else:
+        return dict_inc.setdefault(key, 0)
 
 my_dict = {'apple': 5, 'banana': 6, 'cherry': 7}
 key = input('Введите ключ для поиска: ').lower()
 
-res = get_value_from_dict(my_dict, key, input('Использовать метод get (y/n)? ').lower())
+method = input('Использовать метод get (y/n)? ').lower()
+res = get_value_from_dict(my_dict, key, method)
 print(f"Значение для ключа '{key}': {res}")
