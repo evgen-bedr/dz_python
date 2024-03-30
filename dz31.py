@@ -13,12 +13,14 @@
 
 
 def generate_squares(n):
-    return (i ** 2 for i in range(1, n + 1))
+    for i in range(1, n + 1):
+        yield i ** 2
 
 
-x = int(input('Число: '))
-for i in generate_squares(x):
-    print(i)
+x = 5
+numm = generate_squares(x)
+for i in range(x):
+    print(next(numm))
 
 # 2. Напишите генератор, который будет генерировать бесконечную последовательность Фибоначчи.
 # Каждый раз, когда генератор вызывается, он должен возвращать следующее число последовательности.
